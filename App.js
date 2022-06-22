@@ -88,8 +88,5 @@
    },
  });
  
+
  export default App;
-=======
- export default App;
- 
->>>>>>> 77914eddf5d09ad9573e41be7c390b170e882bf5
