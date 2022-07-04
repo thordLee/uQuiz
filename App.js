@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
- import React from 'react';
+ import React, {useEffect} from 'react';
  import type {Node} from 'react';
  import {
    SafeAreaView,
@@ -27,7 +27,10 @@
  } from 'react-native/Libraries/NewAppScreen';
  
  import { WebView } from 'react-native-webview'; 
- 
+ //splash
+ import SplashScreen from 'react-native-splash-screen';
+
+
  const Section = ({children, title}): Node => {
    const isDarkMode = useColorScheme() === 'dark';
    return (
@@ -61,6 +64,16 @@
      backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
    };
  
+   useEffect(() => {
+    try {
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 2000); //스플래시 활성화 시간 2초
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
+
    return (
      <WebView
        source={{ uri: 'http://uquiz.didimu.co.kr' }}
